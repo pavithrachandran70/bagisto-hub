@@ -12,7 +12,7 @@ Display the channel name on storefront order list and detail pages for customers
 
 ## Steps
 
-1. [ ] **analyst (inline_story)** — The ticket is clear about what to show and where; a developer can code from requirements alone.
+1. [x] **analyst (inline_story)** — The ticket is clear about what to show and where; a developer can code from requirements alone.
    - focus: Focus on the exact views to modify, the channel field already on the order model, and translation requirements for all shipped locales.
 2. [ ] **architect_gate (review)** _(auto)_ — Human approval of specs and this plan before Dev.
 3. [ ] **dev** _(auto)_ — Loop delivery.
