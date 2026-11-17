@@ -1,15 +1,15 @@
 ---
 schema_version: 1
 key: PER-275
-status: in_development
-current_node: dev
+status: escalated
+current_node: pr_review
 track: quick
 involved_repos:
 - app
 depends_on: []
 owner: pavc
 lease_until: '2026-11-19T09:39:43.000196+00:00'
-revision: 26
+revision: 29
 hub_sha: null
 ticket_hash: 46e7c8380fc3955e
 jira_hash: 46e7c8380fc3955e
@@ -29,10 +29,10 @@ pr_ids:
   hub_arch: '2'
   hub: '2'
   app: '1'
-waiting_for: null
-tokens_in: 152966
-tokens_out: 8843
-cost_anthropic_usd: 0.586241
+waiting_for: feature_pr_human
+tokens_in: 174866
+tokens_out: 9714
+cost_anthropic_usd: 0.650362
 cursor_tokens_in: 697203
 cursor_tokens_out: 93212
 cursor_cache_read_tokens: 12631424
@@ -143,6 +143,47 @@ history:
 - node: dev
   note: done 01-app
   at: '2026-11-17T11:34:08.294039+00:00'
+- node: pre_pr_qa
+  note: report written
+  at: '2026-11-17T11:34:12.969899+00:00'
+- node: open_pr
+  note: push app ok
+  at: '2026-11-17T11:34:16.442054+00:00'
+- node: pr_review
+  note: still_open app:4598050101
+  at: '2026-11-17T11:34:24.656320+00:00'
+- node: pr_review
+  note: still_open app:4598050119
+  at: '2026-11-17T11:34:30.932796+00:00'
+- node: pr_review
+  note: post-fix re-review (auto_fix=False)
+  at: '2026-11-17T11:34:30.934136+00:00'
+- node: pr_review
+  note: 'cross-repo check app: no contract used by other repos is touched'
+  at: '2026-11-17T11:34:32.261687+00:00'
+- node: pr_review
+  note: diff loaded app chars=41231
+  at: '2026-11-17T11:34:33.408080+00:00'
+- node: pr_review
+  note: 'inline review app: 2 comment(s)'
+  at: '2026-11-17T11:34:50.127948+00:00'
+- node: pr_review
+  note: 'app:needs_human:moderate:AC1 requires the channel name to appear ''beside
+    or below the order identifier''. '
+  at: '2026-11-17T11:34:56.201279+00:00'
+- node: pr_review
+  note: re-review triage deferred app:needs_human
+  at: '2026-11-17T11:34:56.202693+00:00'
+- node: pr_review
+  note: app:issue:moderate:AC2 requires 'the same channel name appears on the detail
+    view'. The diff adds '
+  at: '2026-11-17T11:34:57.999013+00:00'
+- node: pr_review
+  note: "pr_revision cap \u2192 human app:4598999216"
+  at: '2026-11-17T11:35:00.443067+00:00'
+- node: pr_review
+  note: "pr_revision cap \u2192 human"
+  at: '2026-11-17T11:35:00.451344+00:00'
 ---
 
 # Feature state

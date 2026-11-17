@@ -44,3 +44,10 @@
 2026-11-17T10:56:11.577914+00:00 dev cursor 01-app attempt=2
 2026-11-17T11:22:00.347044+00:00 dev cursor 01-app usage model=Auto Balance in=88728 out=3274 cache_read=1357952 cache_write=0 ms=1536656
 2026-11-17T11:34:07.106549+00:00 dev verify 01-app PASS attempt=2
+2026-11-17T11:34:22.341177+00:00 test_architect llm model=claude-haiku-4-5-20251001 in=1188 out=123 usd=0.001803
+2026-11-17T11:34:28.761265+00:00 test_architect llm model=claude-haiku-4-5-20251001 in=2629 out=128 usd=0.003269
+2026-11-17T11:34:33.411192+00:00 heartbeat reviewer
+2026-11-17T11:34:44.749399+00:00 reviewer llm model=claude-sonnet-4-5-20250929 in=16953 out=396 usd=0.056799
+2026-11-17T11:34:56.197373+00:00 reviewer llm model=claude-haiku-4-5-20251001 in=577 out=110 usd=0.001127
+2026-11-17T11:34:57.997811+00:00 reviewer llm model=claude-haiku-4-5-20251001 in=553 out=114 usd=0.001123
+2026-11-17T11:35:00.792170+00:00 node end pr_review waiting=feature_pr_human
