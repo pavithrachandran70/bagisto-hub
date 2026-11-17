@@ -1,0 +1,21 @@
+I'll implement the PER-275 story from the story file and the repo graph context, starting by reading both so the change stays inside that scope.
+The story is a storefront UI change: show each order’s channel name on the account list and detail pages, with a translated label. I’ll confirm the order relationship and the existing views before editing them.
+The order already stores `channel_name`, and the account list is a datagrid, so I’ll show that name on the list and the order page and add a translated “Channel” label in every shop locale.
+The order tests passed. Next I’ll run the full parallel suite and wait for it to finish.
+A customer's storefront orders now show the channel stored on the order, on both the account list and the order page.
+
+- The desktop list adds a **Channel** column beside the order ID. The mobile list shows the same name under the order ID.
+- The order page shows it under the placed-on date on desktop and under the order ID on mobile.
+- The name is the order's stored `channel_name`. If that is empty, the page uses the order's channel relationship. If the order has no channel, the label still renders and the page does not error.
+- The label is `shop::app.customers.account.orders.channel`, added in all 23 shop locales.
+
+`vendor/bin/pest --parallel` finished with 4322 passed, 3 skipped. The Shop translation check passed. I could not open the storefront in a browser; the feature tests cover the rendered label and channel name.
+
+Files changed:
+
+- `packages/Webkul/Shop/src/DataGrids/OrderDataGrid.php`
+- `packages/Webkul/Shop/src/Resources/views/customers/account/orders/index.blade.php`
+- `packages/Webkul/Shop/src/Resources/views/customers/account/orders/view.blade.php`
+- `packages/Webkul/Shop/src/Resources/views/components/shimmer/customers/account/orders/index.blade.php`
+- `packages/Webkul/Shop/src/Resources/lang/*/app.php` (all 23 locales)
+- `packages/Webkul/Shop/tests/Feature/Customers/OrdersTest.php`
