@@ -1,0 +1,24 @@
+{
+  "comment_ids": [
+    "4598050101",
+    "4598050119"
+  ],
+  "tier": "moderate",
+  "stories": [
+    "01-app"
+  ],
+  "items": [
+    {
+      "comment_id": "4598050101",
+      "repo": "app",
+      "path": "packages/Webkul/Shop/src/Resources/views/customers/account/orders/view.blade.php",
+      "tier": "moderate"
+    },
+    {
+      "comment_id": "4598050119",
+      "repo": "app",
+      "path": "packages/Webkul/Shop/src/DataGrids/OrderDataGrid.php",
+      "tier": "moderate"
+    }
+  ]
+}

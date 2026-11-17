@@ -14,10 +14,10 @@ Display the channel name on storefront order list and detail pages for customers
 
 1. [x] **analyst (inline_story)** — The ticket is clear about what to show and where; a developer can code from requirements alone.
    - focus: Focus on the exact views to modify, the channel field already on the order model, and translation requirements for all shipped locales.
-2. [ ] **architect_gate (review)** _(auto)_ — Human approval of specs and this plan before Dev.
-3. [ ] **dev** _(auto)_ — Loop delivery.
-4. [ ] **pre_pr_qa** _(auto)_ — Loop delivery.
-5. [ ] **open_pr** _(auto)_ — Loop delivery.
+2. [x] **architect_gate (review)** _(auto)_ — Human approval of specs and this plan before Dev.
+3. [x] **dev** _(auto)_ — Loop delivery.
+4. [x] **pre_pr_qa** _(auto)_ — Loop delivery.
+5. [x] **open_pr** _(auto)_ — Loop delivery.
 6. [ ] **pr_review** _(auto)_ — Loop delivery.
 7. [ ] **merge** _(auto)_ — Loop delivery.
 

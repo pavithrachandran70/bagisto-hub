@@ -19,3 +19,39 @@ Files changed:
 - `packages/Webkul/Shop/src/Resources/views/components/shimmer/customers/account/orders/index.blade.php`
 - `packages/Webkul/Shop/src/Resources/lang/*/app.php` (all 23 locales)
 - `packages/Webkul/Shop/tests/Feature/Customers/OrdersTest.php`
+I'll implement the PER-275 story and the two review fixes for the channel name fallback. First I'm reading the story, the code context, and the coding standards that apply.
+The review is about empty channel names when `channel_name` and the relationship are both missing. I'll read the order views, datagrid, and the tests that currently expect a null name.
+The order list only reads the stored `channel_name`, and the detail page prints nothing when that and the channel relationship are both missing. I'll fill both from the channel record, then the default channel, so the label always has a name.
+The shop order tests need a migrated database. I'll run them under Pest's parallel runner, which creates and migrates the worker databases.
+The order list and the order detail page now always show a channel name, including when the order has no stored name and no channel record.
+
+- The list reads the channel translation when `channel_name` is empty, then the default channel.
+- The detail page uses the same order: stored name, related channel, then the default channel. The last resort is the translated label "Default Store".
+- That fallback label is present in all 23 shop locales.
+
+`vendor/bin/pest --parallel` finished with 4335 passed and 3 skipped. The translation check passed. I did not open the storefront in a browser; the feature tests cover the list payload and the detail HTML.
+I'll start from the PER-275 story and the forge comments on channel-name fallbacks, then implement only what that story asks for.
+The story already has partial channel-name work. I'll read the order views, datagrid, and tests to see where a null channel still renders empty.
+The review is right: a missing channel name must still show a name. The list query joins translations in a way that can make `ORDER BY id` ambiguous, so I’ll resolve the name in the select and keep a fallback when both the column and the channel are empty.
+The test database has no tables yet, so I’m installing the app schema and seed data before running the order tests.
+The order tests passed. Next I’ll run the full Pest suite and wait for it to finish.
+The storefront order list and the order detail page now always show a channel name. When `channel_name` is empty, the name comes from the order's channel. When the order has no channel at all, it shows the default channel name, or the translated "Default Store" label.
+
+That covers the two review comments: the detail page no longer leaves a blank after "Channel:", and the order list no longer returns a null channel name.
+
+`vendor/bin/pest --parallel` finished with exit code 0: 4335 passed, 3 skipped. The order-channel tests passed (28), and the translation check passed. I could not open the storefront in a browser, so this was verified through those feature tests.
+
+Files changed:
+
+- `packages/Webkul/Shop/src/DataGrids/OrderDataGrid.php`
+- `packages/Webkul/Shop/src/Support/OrderChannelName.php`
+- `packages/Webkul/Shop/src/Resources/views/customers/account/orders/view.blade.php`
+- `packages/Webkul/Shop/src/Resources/views/customers/account/orders/index.blade.php` (already on the branch)
+- `packages/Webkul/Shop/src/Resources/lang/*/app.php` (all 23 locales: `channel` and `default-channel`)
+- `packages/Webkul/Shop/tests/Feature/Customers/OrdersTest.php`
+- `packages/Webkul/Shop/tests/Feature/Customers/OrderListChannelDisplayTest.php`
+- `packages/Webkul/Shop/tests/Feature/Customers/OrderDetailChannelDisplayTest.php`
+- `packages/Webkul/Shop/tests/Feature/Customers/SingleChannelOrderDisplayTest.php`
+- `packages/Webkul/Shop/tests/Feature/Customers/OrderChannelLocalizationTest.php`
+- `packages/Webkul/Shop/tests/Feature/Customers/OrderNullChannelFallbackTest.php`
+- `packages/Webkul/Shop/tests/Feature/Customers/LongChannelNameLayoutTest.php`The full Pest suite finished successfully: **4335 passed**, 3 skipped, exit code 0. The channel name now shows on the storefront order list and the order detail page, including when the stored channel name or the channel itself is missing.

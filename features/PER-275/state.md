@@ -9,7 +9,7 @@ involved_repos:
 depends_on: []
 owner: pavc
 lease_until: '2026-11-19T09:39:43.000196+00:00'
-revision: 20
+revision: 26
 hub_sha: null
 ticket_hash: 46e7c8380fc3955e
 jira_hash: 46e7c8380fc3955e
@@ -21,20 +21,21 @@ stories:
 - 01-app
 child_ticket_keys: []
 critic_iterations: 0
-dev_retries: 0
-pr_revision_rounds: 0
+dev_retries: 1
+pr_revision_rounds: 1
 gate_rounds: {}
 pr_ids:
   hub_plan: '1'
   hub_arch: '2'
   hub: '2'
+  app: '1'
 waiting_for: null
-tokens_in: 24265
-tokens_out: 2790
-cost_anthropic_usd: 0.114317
-cursor_tokens_in: 239003
-cursor_tokens_out: 34034
-cursor_cache_read_tokens: 4952704
+tokens_in: 152966
+tokens_out: 8843
+cost_anthropic_usd: 0.586241
+cursor_tokens_in: 697203
+cursor_tokens_out: 93212
+cursor_cache_read_tokens: 12631424
 cursor_cache_write_tokens: 0
 history:
 - node: intake
@@ -91,6 +92,57 @@ history:
 - node: dev
   note: done 01-app
   at: '2026-11-17T10:06:14.315943+00:00'
+- node: pre_pr_qa
+  note: report written
+  at: '2026-11-17T10:06:18.023843+00:00'
+- node: open_pr
+  note: push app ok
+  at: '2026-11-17T10:06:27.393365+00:00'
+- node: open_pr
+  note: PRs opened app:1
+  at: '2026-11-17T10:06:27.393506+00:00'
+- node: pr_review
+  note: 'cross-repo check app: no contract used by other repos is touched'
+  at: '2026-11-17T10:06:29.940162+00:00'
+- node: pr_review
+  note: diff loaded app chars=22792
+  at: '2026-11-17T10:06:30.912504+00:00'
+- node: pr_review
+  note: 'inline review app: 2 comment(s)'
+  at: '2026-11-17T10:06:45.175348+00:00'
+- node: pr_review
+  note: 'app:issue:moderate:AC2 requires the channel name to appear on the order detail
+    page. The diff adds '
+  at: '2026-11-17T10:06:49.582970+00:00'
+- node: pr_review
+  note: 'app:issue:moderate:AC1 requires each order to display its channel name in
+    the order list. The diff '
+  at: '2026-11-17T10:06:53.193865+00:00'
+- node: pr_review
+  note: 'whole-story rewrite: no path match, comments=[''4598050119''] stories=[''01-app'']'
+  at: '2026-11-17T10:06:55.988963+00:00'
+- node: pr_review
+  note: auto-fix tier=moderate round=1
+  at: '2026-11-17T10:06:55.990123+00:00'
+- node: pr_review
+  note: "route moderate \u2192 loop pr_fix_moderate: designer \u2192 test_architect\
+    \ \u2192 dev \u2192 pre_pr_qa \u2192 pr_review"
+  at: '2026-11-17T10:06:57.253079+00:00'
+- node: designer
+  note: lld updated
+  at: '2026-11-17T10:07:43.796039+00:00'
+- node: test_architect
+  note: tests appended
+  at: '2026-11-17T10:08:32.273801+00:00'
+- node: dev
+  note: no breakdown.md (inline story); no sub-issues to create
+  at: '2026-11-17T10:08:32.275610+00:00'
+- node: dev
+  note: starting
+  at: '2026-11-17T10:08:32.275720+00:00'
+- node: dev
+  note: done 01-app
+  at: '2026-11-17T11:34:08.294039+00:00'
 ---
 
 # Feature state
